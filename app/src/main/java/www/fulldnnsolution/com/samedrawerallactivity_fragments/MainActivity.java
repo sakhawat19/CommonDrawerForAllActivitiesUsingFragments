@@ -28,11 +28,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        toggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.colorWhite));
+
+
+
 
         // To Open This Fragment When the app Run
 
