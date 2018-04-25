@@ -7,14 +7,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import www.fulldnnsolution.com.samedrawerallactivity_fragments.ui.DialogLogin;
 import www.fulldnnsolution.com.samedrawerallactivity_fragments.ui.MessageFragment;
 import www.fulldnnsolution.com.samedrawerallactivity_fragments.ui.ProfileFragment;
 import www.fulldnnsolution.com.samedrawerallactivity_fragments.ui.UploadFragment;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, DialogLogin.DialogLoginListener {
 
     private DrawerLayout drawer;
 
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.nav_message:
+
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new MessageFragment()).commit();
                 break;
@@ -75,8 +78,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_share:
                 Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
 
+                break;
+
+            case R.id.nav_signin:
+
+                /**
+                 *  For Showing Overlay Dialog Box
+                 */
+                    openDialog();
+
+                break;
+
+
             case R.id.nav_signput:
                 Toast.makeText(this, "Signed Out!", Toast.LENGTH_SHORT).show();
+                break;
         }
 
         drawer.closeDrawer(GravityCompat.START);
@@ -91,5 +107,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
 
+    }
+
+
+    /**
+     *   Open Dialog Box Method
+     */
+
+    public void openDialog(){
+        DialogLogin dialogLogin = new DialogLogin();
+        dialogLogin.show(getSupportFragmentManager(), "dialog login");
+
+    }
+
+
+    @Override
+    public void applyTexts(String username, String password) {
+
+        Log.e("UserName: ", username);
+        Log.e("Pass: ", password);
     }
 }

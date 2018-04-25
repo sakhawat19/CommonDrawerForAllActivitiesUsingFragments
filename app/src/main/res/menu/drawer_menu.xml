@@ -26,6 +26,16 @@
                 android:icon="@drawable/ic_share_black_24dp"
                 android:title="Share" />
             <item
+                android:id="@+id/nav_signin"
+                android:icon="@drawable/ic_lock_open_black_24dp"
+                android:title="Sign In" />
+
+            <item
+                android:id="@+id/nav_signup"
+                android:icon="@drawable/ic_lock_open_black_24dp"
+                android:title="Sign Up" />
+
+            <item
                 android:id="@+id/nav_signput"
                 android:icon="@drawable/ic_lock_open_black_24dp"
                 android:title="Sign Out" />
