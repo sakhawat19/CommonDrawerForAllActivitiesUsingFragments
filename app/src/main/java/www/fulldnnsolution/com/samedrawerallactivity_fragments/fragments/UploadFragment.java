@@ -1,4 +1,4 @@
-package www.fulldnnsolution.com.samedrawerallactivity_fragments;
+package www.fulldnnsolution.com.samedrawerallactivity_fragments.ui;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ImportFragment extends Fragment {
+import www.fulldnnsolution.com.samedrawerallactivity_fragments.R;
+
+public class UploadFragment extends Fragment {
 
     @Nullable
     @Override

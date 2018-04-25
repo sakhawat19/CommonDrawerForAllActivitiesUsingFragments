@@ -9,7 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
-import android.widget.Toolbar;
+
+import www.fulldnnsolution.com.samedrawerallactivity_fragments.ui.MessageFragment;
+import www.fulldnnsolution.com.samedrawerallactivity_fragments.ui.ProfileFragment;
+import www.fulldnnsolution.com.samedrawerallactivity_fragments.ui.UploadFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -49,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setCheckedItem(R.id.nav_message);
         }
 
-
     }
 
     @Override
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             case R.id.nav_import:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new ImportFragment()).commit();
+                        new UploadFragment()).commit();
                 break;
 
             case R.id.nav_profile:
