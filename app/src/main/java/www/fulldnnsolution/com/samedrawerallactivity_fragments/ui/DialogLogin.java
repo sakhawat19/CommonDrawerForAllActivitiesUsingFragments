@@ -10,14 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
+import www.fulldnnsolution.com.samedrawerallactivity_fragments.MainActivity;
 import www.fulldnnsolution.com.samedrawerallactivity_fragments.R;
 
 public class DialogLogin extends AppCompatDialogFragment {
 
     private EditText usernameEt;
     private EditText passwordEt;
+    private EditText mobileET;
     private DialogLoginListener listener;
-
 
 
 
@@ -25,6 +26,7 @@ public class DialogLogin extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_login, null);
@@ -42,12 +44,14 @@ public class DialogLogin extends AppCompatDialogFragment {
                     public void onClick(DialogInterface dialog, int which) {
                         String username = usernameEt.getText().toString();
                         String password = passwordEt.getText().toString();
-                        listener.applyTexts(username, password);
+                        String mobile = mobileET.getText().toString();
+                        listener.applyTexts(username, password, mobile);
                     }
                 });
 
         usernameEt = view.findViewById(R.id.username_et);
         passwordEt = view.findViewById(R.id.password_et);
+        mobileET = view.findViewById(R.id.mobile_et);
 
 
         return builder.create();
@@ -69,6 +73,6 @@ public class DialogLogin extends AppCompatDialogFragment {
     }
 
     public interface DialogLoginListener{
-        void applyTexts(String username, String password);
+        void applyTexts(String username, String password, String mobile);
     }
 }

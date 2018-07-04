@@ -11,8 +11,9 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import www.fulldnnsolution.com.samedrawerallactivity_fragments.fragments.WeatherFragment;
 import www.fulldnnsolution.com.samedrawerallactivity_fragments.ui.DialogLogin;
-import www.fulldnnsolution.com.samedrawerallactivity_fragments.ui.MessageFragment;
+import www.fulldnnsolution.com.samedrawerallactivity_fragments.fragments.MessageFragment;
 import www.fulldnnsolution.com.samedrawerallactivity_fragments.ui.ProfileFragment;
 import www.fulldnnsolution.com.samedrawerallactivity_fragments.ui.UploadFragment;
 
@@ -49,9 +50,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // To Open This Fragment When the app Run
 
         if(savedInstanceState == null){
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                new MessageFragment()).commit();
-        navigationView.setCheckedItem(R.id.nav_message);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new MessageFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_message);
         }
 
     }
@@ -60,8 +61,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.nav_message:
-
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new MessageFragment()).commit();
                 break;
 
@@ -75,10 +75,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         new ProfileFragment()).commit();
                 break;
 
-            case R.id.nav_share:
-                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
-
+            case R.id.nav_weather:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new WeatherFragment()).commit();
                 break;
+
+
 
             case R.id.nav_signin:
 
@@ -117,14 +119,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void openDialog(){
         DialogLogin dialogLogin = new DialogLogin();
         dialogLogin.show(getSupportFragmentManager(), "dialog login");
-
     }
 
 
     @Override
-    public void applyTexts(String username, String password) {
-
+    public void applyTexts(String username, String password, String mobile) {
         Log.e("UserName: ", username);
         Log.e("Pass: ", password);
+        Log.e("Mobile: ", mobile);
     }
+
 }

@@ -19,5 +19,11 @@
         android:layout_height="wrap_content"
         android:hint="Password"
         android:inputType="textPassword"/>
+    <EditText
+        android:id="@+id/mobile_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mobile Phone"
+        android:inputType="phone"/>
 
 </LinearLayout>
